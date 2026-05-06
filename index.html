@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDigital | Platform Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100">
+
+    <!-- HALAMAN LOGIN (Awal) -->
+    <div id="loginPage" class="fixed inset-0 z-[100] bg-blue-900 flex items-center justify-center p-6">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md text-center">
+            <h1 class="text-3xl font-black text-blue-900 mb-2">SmartDigital</h1>
+            <p class="text-gray-500 mb-6">Silakan masuk untuk mengakses platform</p>
+            <form id="loginForm" class="space-y-4">
+                <input type="text" id="username" placeholder="Username (bebas)" class="input-field" required>
+                <input type="password" id="password" placeholder="Password (bebas)" class="input-field" required>
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700">Masuk Sekarang</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MAIN INTERFACE (Tersembunyi sebelum login) -->
+    <div id="mainContent" class="hidden">
+        <!-- Navbar -->
+        <nav class="bg-white shadow-md sticky top-0 z-50">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <h1 class="text-xl font-black text-blue-800">SmartDigital</h1>
+                <div class="flex items-center space-x-6">
+                    <a href="#produk" class="hover:text-blue-600">Beli Produk</a>
+                    <a href="#admin" class="hover:text-blue-600 font-bold text-orange-600">Panel Penjual</a>
+                    <button id="logoutBtn" class="bg-red-100 text-red-600 px-4 py-2 rounded-lg text-sm font-bold hover:bg-red-200">
+                        <i class="fas fa-sign-out-alt"></i> Keluar
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="bg-blue-800 text-white py-12 text-center">
+            <h2 class="text-3xl font-bold">Halo, <span id="userDisplay">User</span>!</h2>
+            <p class="opacity-80">Selamat datang di pasar produk digital terlengkap.</p>
+        </header>
+
+        <!-- Produk Section (Untuk Pembeli) -->
+        <section id="produk" class="container mx-auto px-6 py-16">
+            <h2 class="section-title">Katalog Produk Digital</h2>
+            <div id="productGrid" class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
+                <!-- Produk Otomatis Muncul Disini -->
+                <div class="card p-4">
+                    <div class="h-40 bg-gray-200 mb-4 rounded flex items-center justify-center">
+                        <i class="fas fa-file-ppt text-4xl text-orange-400"></i>
+                    </div>
+                    <h3 class="font-bold">PPT Materi Sejarah SD</h3>
+                    <p class="text-xs text-gray-500">Edukasi</p>
+                    <p class="price">Rp 15.000</p>
+                    <button class="buy-btn">Beli via QRIS</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layanan Dev Section -->
+        <section id="layanan" class="bg-white py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Jasa Development</h2>
+                <div class="grid md:grid-cols-2 gap-6 mt-8">
+                    <div class="p-6 border rounded-xl hover:border-blue-500 transition">
+                        <i class="fas fa-code text-blue-600 text-2xl mb-2"></i>
+                        <h3 class="font-bold">Pembuatan Web Kustom</h3>
+                        <p class="text-sm text-gray-600">Hubungi kami untuk project skala besar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Section (Untuk Penjual) -->
+        <section id="admin" class="container mx-auto px-6 py-16 border-t">
+            <div class="bg-orange-50 p-8 rounded-2xl border border-orange-200">
+                <h2 class="text-2xl font-bold text-orange-800 mb-6 italic"><i class="fas fa-store"></i> Panel Penjual (Upload Produk)</h2>
+                <form id="uploadForm" class="grid md:grid-cols-2 gap-4">
+                    <input type="text" id="prodName" placeholder="Nama Produk" class="input-field" required>
+                    <select id="prodCategory" class="input-field">
+                        <option value="PPT">PPT Sekolah</option>
+                        <option value="Infografis">Infografis</option>
+                        <option value="Foto">Foto Estetik</option>
+                        <option value="Materi">Materi Pelajaran</option>
+                    </select>
+                    <input type="number" id="prodPrice" placeholder="Harga (Rp)" class="input-field" required>
+                    <input type="file" id="prodImage" accept="image/*" class="input-field" required>
+                    <button type="submit" class="md:col-span-2 bg-orange-600 text-white py-3 rounded-lg font-bold hover:bg-orange-700 transition">Post Produk ke Toko</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-10 bg-gray-900 text-white text-center text-sm">
+            <p>&copy; 2026 SmartDigital Indonesia | Pembayaran Terenkripsi Aman</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
